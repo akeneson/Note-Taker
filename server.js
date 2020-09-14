@@ -6,14 +6,18 @@
 // Module 04: Serving-HTML
 
 // dependencies
-const http = require("http");
-const fs = require("fs");
+var fs = require("fs");
 var express = require("express");
+var path = require("path");
 
 var app = express();
 
 // set port to 8000
 const PORT = 8080;
+
+// Sets up the Express app to handle data parsing
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // create server
 const server = http.createServer(handleRequest);
@@ -29,7 +33,7 @@ app.get("/notes", function(req, res) {
     res.sendFile(path.join(__dirname, "/public/notes.html"));
 });
 
-app.get ("/*", function(req, res) {
+app.get("/*", function(req, res) {
     res.sendFile(path.join(__dirname, "/public/index.html"));
 });
 
