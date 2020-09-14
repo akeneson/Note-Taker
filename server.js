@@ -19,13 +19,13 @@ const PORT = 8080;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// create server
-const server = http.createServer(handleRequest);
+// // create server
+// const server = http.createServer(handleRequest);
 
-// handelRequest function
-function handleRequest(req, res) {
-    console.log("handleRquest function called");
-}
+// // handelRequest function
+// function handleRequest(req, res) {
+//     console.log("handleRquest function called");
+// }
 
 // ============ROUTES=========
 // referenced: Module 14 in express
@@ -39,6 +39,6 @@ app.get("/*", function(req, res) {
 
 // ============Listener==========
 // starts server
-server.listen(PORT, function() {
+app.listen(PORT, function() {
     console.log("Server is listening on Por: " + PORT);
 });
