@@ -31,7 +31,10 @@ class AddDB {
             text: data.text
         }
         console.log(newNote);
-        return this.readFileSystem().then(allNotes => [...allNotes, newNote]).then(notes => this.writeFileSystem(notes)).then(() => this.readFileSystem())
+        const newNoteList = this.readFileSystem().then(allNotes => {
+        return [...allNotes, newNote]})
+        this.writeFileSystem(newNoteList)
+        return this.readFileSystem();
         // first: read our file
         // second: create a temporary file
         // third: pushing the new note to allNotes
