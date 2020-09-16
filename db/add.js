@@ -4,7 +4,6 @@ const fs = require('fs');
 const util = require('util');
 
 const { v4: uuidv4 } = require('uuid');
-
 // uuidv4(); // ⇨ '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d'
 
 const asyncReadFile = util.promisify(fs.readFile);
@@ -22,7 +21,6 @@ class AddDB {
     readAllNotes() {
 
         return this.readFileSystem().then(data => {
-            console.log(data);
             [...JSON.parse(data)]
         })
     }
