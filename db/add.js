@@ -19,22 +19,20 @@ class AddDB {
     }
 
     readAllNotes() {
-
+        //Returning the read files put into a new array because you cant spread JSON.parse
         return this.readFileSystem().then(data => {
-            [...JSON.parse(data)]
+            return [].concat(JSON.parse(data))
         })
     }
     writeAllNotes(data) {
         const newNote = {
-            id: uuidv4(),
+            id: id + 1,
             title: data.title,
             text: data.text
         }
         console.log(newNote);
-        const newNoteList = this.readFileSystem().then(allNotes => {
-        return [...allNotes, newNote]})
-        this.writeFileSystem(newNoteList)
-        return this.readFileSystem();
+        //Changed from this.readFileSystem to readAllNotes so you have an array to spread the data
+        return this.readAllNotes().then(allNotes => [...allNotes, newNote]).then(notes => this.writeFileSystem(notes)).then(() => this.readFileSystem())
         // first: read our file
         // second: create a temporary file
         // third: pushing the new note to allNotes
