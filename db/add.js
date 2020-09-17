@@ -25,7 +25,7 @@ class AddDB {
             text: data.text
         }
         console.log(newNote);
-        // changed from this.readFileSystem to readAllNotes so you have an array to spread the data
+          // changed from this.readFileSystem to readAllNotes so you have an array to spread the data
         return this.readAllNotes().then(allNotes => [...allNotes, newNote]).then(notes => this.writeFileSystem(notes)).then(() => this.readFileSystem())
         // first: read our file
         // second: create a temporary file
