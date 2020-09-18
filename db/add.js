@@ -34,7 +34,10 @@ class AddDB {
         }
         console.log(newNote);
         //Changed from this.readFileSystem to readAllNotes so you have an array to spread the data
-        return this.readAllNotes().then(allNotes => [...allNotes, newNote]).then(notes => this.writeFileSystem(notes)).then(() => this.readFileSystem().then())
+        return this.readAllNotes()
+        .then(allNotes => [...allNotes, newNote])
+        .then(notes => this.writeFileSystem(notes))
+        .then(() => this.readFileSystem())
         
     // writeAllNotes(data) {
        
@@ -49,7 +52,10 @@ class AddDB {
     }
 
     deleteNote(data) {
-        return this.readFileSystem().then(notes => { notes.indexOf(note => note.id !== id) }).then(notes => this.writeFileSystem(notes)).then(() => this.readFileSystem())
+        return this.readAllNotes()
+        .then(notes => { notes.indexOf(note => note.id !== id) })
+        .then(notes => this.writeFileSystem(notes))
+        .then(() => this.readAllNotes())
     }
 }
 
