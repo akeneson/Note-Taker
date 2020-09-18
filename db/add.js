@@ -19,10 +19,17 @@ class AddDB {
         return asyncWriteFile("db/db.json", JSON.stringify(data));
     }
 
-    readAllNotes() {
+    readAllNotes(data) {
         //Returning the read files put into a new array because you cant spread JSON.parse
-        return this.readFileSystem().then(data => {
-            return [].concat(JSON.parse(data))
+        return this.readFileSystem()
+        .then(data => {
+            // console.log(data);
+            // if (JSON.parse(data) == "undefined"){
+            //     return [].concat(JSON.parse(data));
+            // }
+            // else
+            //     console.log(data);
+                return [].concat(JSON.parse(data));
         })
     }
 
@@ -53,7 +60,7 @@ class AddDB {
 
     deleteNote(data) {
         return this.readAllNotes()
-        .then(notes => { notes.indexOf(note => note.id !== id) })
+        .then(notes => { notes.indexOf(notes => notes.id !== id) })
         .then(notes => this.writeFileSystem(notes))
         .then(() => this.readAllNotes())
     }
