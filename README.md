@@ -7,6 +7,8 @@
   # Note Taker
   ## Description
   This application allows you to jot down notes to use later for recalling. You can revise the note and delete them when you're done with them!
+![Image of Note Taker](https://github.com/akeneson/Note-Taker/blob/master/Screen%20Shot%202020-09-18%20at%207.04.46%20PM.png?raw=true)
+
   ---
   ## Table of Contents
 
