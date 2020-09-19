@@ -11,7 +11,7 @@ const apiRoutes = require("./routes/apiRoute");
 const app = express();
 
 // set port to 80
-const PORT = process.env.port ||80;
+const PORT = process.env.PORT ||80;
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
