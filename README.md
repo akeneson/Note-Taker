@@ -20,10 +20,9 @@
   * [Questions](#questions)
  ---
  ## Installation
-  To in stall this blah
-  ```
-  npm install
-  ```
+  No installment requierd, just click on the following link:
+  
+  https://secure-falls-56783.herokuapp.com/
 
   ## Usage
   Open the application and run the command "node server.js", then, head to the local host to utilize the application.
